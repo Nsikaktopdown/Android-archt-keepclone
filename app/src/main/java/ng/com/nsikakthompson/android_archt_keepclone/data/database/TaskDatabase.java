@@ -15,7 +15,7 @@ import ng.com.nsikakthompson.android_archt_keepclone.data.entity.Task;
 @TypeConverters(DateTypeConverter.class)
 public abstract class TaskDatabase extends RoomDatabase {
 
-    abstract TaskDao taskDao();
+ public   abstract TaskDao taskDao();
 
 
 }

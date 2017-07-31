@@ -4,7 +4,10 @@ import android.app.Application;
 
 import com.jakewharton.threetenabp.AndroidThreeTen;
 
-import timber.log.Timber;
+import ng.com.nsikakthompson.android_archt_keepclone.injection.DaggerTaskComponent;
+import ng.com.nsikakthompson.android_archt_keepclone.injection.TaskComponent;
+import ng.com.nsikakthompson.android_archt_keepclone.injection.TaskModule;
+
 
 /**
  * Created by NsikakTom on 7/31/2017.
@@ -12,23 +15,22 @@ import timber.log.Timber;
 
 public class AppController extends Application {
 
-    private final CountdownComponent countDownComponent = createCountdownComponent();
+    private final TaskComponent taskComponent = createTaskComponent();
 
     @Override
     public void onCreate() {
         super.onCreate();
         AndroidThreeTen.init(this);
-
     }
 
-    protected CountdownComponent createCountdownComponent() {
-        return DaggerCountdownComponent.builder()
-                .countdownModule(new CountdownModule(this))
+    protected TaskComponent createTaskComponent() {
+        return DaggerTaskComponent.builder()
+                .taskModule(new TaskModule(this))
                 .build();
     }
 
-    public CountdownComponent getCountDownComponent() {
-        return countDownComponent;
+    public TaskComponent getTaskComponent() {
+        return taskComponent;
     }
 
 }

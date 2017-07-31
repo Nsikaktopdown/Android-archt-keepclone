@@ -31,18 +31,22 @@ public class Task {
     private String status;
 
 
-    @ColumnInfo(name = DATE_FIELD)
-    private LocalDateTime date;
+    /*@ColumnInfo(name = DATE_FIELD)
+    private LocalDateTime date;*/
 
+    //constructor
+    public Task(){
+
+    }
     public Task(int id, String title, String description, String status) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.status = status;
     }
-    public LocalDateTime getDate() {
+    /*public LocalDateTime getDate() {
         return date;
-    }
+    }*/
 
     public int getId() {
         return id;

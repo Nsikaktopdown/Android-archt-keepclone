@@ -31,5 +31,8 @@ public interface TaskDao {
     @Update(onConflict = REPLACE)
     void updateTask(Task task);
 
+    @Query("DELETE * FROM " + Task.TABLE_NAME)
+    void deleteAll();
+
 
 }

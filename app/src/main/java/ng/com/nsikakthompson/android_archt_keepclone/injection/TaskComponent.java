@@ -3,6 +3,7 @@ package ng.com.nsikakthompson.android_archt_keepclone.injection;
 import javax.inject.Singleton;
 
 import dagger.Component;
+import dagger.Module;
 import ng.com.nsikakthompson.android_archt_keepclone.viewModel.AddTaskViewModel;
 import ng.com.nsikakthompson.android_archt_keepclone.viewModel.TaskListViewModel;
 
@@ -10,7 +11,7 @@ import ng.com.nsikakthompson.android_archt_keepclone.viewModel.TaskListViewModel
  * Created by NsikakTom on 7/31/2017.
  */
 @Singleton
-@Component(modules = {CountdownModule.class})
+@Component(modules = {TaskModule.class})
 public interface TaskComponent {
 
         void inject(TaskListViewModel taskListViewModel);
@@ -22,4 +23,4 @@ public interface TaskComponent {
         }
     }
 
-}
+
