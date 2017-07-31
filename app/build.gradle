@@ -20,7 +20,7 @@ android {
 }
 ext {
 
-    daggerVersion = "2.8"
+    dagger_version = "2.11"
     supportLibraryVersion = "25.3.1"
 
 }
