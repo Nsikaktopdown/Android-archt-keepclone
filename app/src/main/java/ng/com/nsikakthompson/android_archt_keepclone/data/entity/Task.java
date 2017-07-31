@@ -4,6 +4,8 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
+import org.threeten.bp.LocalDateTime;
+
 import static ng.com.nsikakthompson.android_archt_keepclone.data.entity.Task.STATUS;
 import static ng.com.nsikakthompson.android_archt_keepclone.data.entity.Task.TABLE_NAME;
 
@@ -17,6 +19,7 @@ public class Task {
     public static final String TITLE = "title";
     public static final String DESCRIPTION = "description";
     public static final String STATUS = "status";
+    public static final String DATE_FIELD = "date";
 
     @PrimaryKey(autoGenerate = true)
     private int id;
@@ -27,11 +30,18 @@ public class Task {
     @ColumnInfo(name = STATUS)
     private String status;
 
+
+    @ColumnInfo(name = DATE_FIELD)
+    private LocalDateTime date;
+
     public Task(int id, String title, String description, String status) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.status = status;
+    }
+    public LocalDateTime getDate() {
+        return date;
     }
 
     public int getId() {
