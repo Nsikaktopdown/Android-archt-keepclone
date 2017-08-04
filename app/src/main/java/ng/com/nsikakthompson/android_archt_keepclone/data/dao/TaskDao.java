@@ -19,7 +19,7 @@ import static android.arch.persistence.room.OnConflictStrategy.REPLACE;
 @Dao
 public interface TaskDao {
 
-    @Query("SELECT  * FROM " + Task.TABLE_NAME )
+    @Query("SELECT * FROM " + Task.TABLE_NAME )
     LiveData<List<Task>> getAllTask();
 
     @Insert(onConflict = REPLACE)
@@ -31,7 +31,7 @@ public interface TaskDao {
     @Update(onConflict = REPLACE)
     void updateTask(Task task);
 
-    @Query("DELETE * FROM " + Task.TABLE_NAME)
+    @Query("DELETE  FROM " + Task.TABLE_NAME)
     void deleteAll();
 
 

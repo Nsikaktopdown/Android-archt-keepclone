@@ -7,6 +7,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -22,27 +24,33 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
 
     private List<Task> taskList;
     private Context context;
+    private View.OnClickListener deleteClickListener;
+    private View.OnClickListener viewClickListener;
 
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView title, description;
+        ImageButton delete_button;
 
         public MyViewHolder(View view) {
             super(view);
 
             title = (TextView) view.findViewById(R.id.task_title);
             description = (TextView) view.findViewById(R.id.task_description);
+            delete_button = view.findViewById(R.id.delete_button);
 
         }
 
     }
 
 
-    public TaskAdapter(Context mContext, List<Task> taskList) {
+    public TaskAdapter(Context mContext, List<Task> taskList, View.OnClickListener viewClickListener, View.OnClickListener deleteClickListener) {
 
         this.context = mContext;
         this.taskList = taskList;
+        this.deleteClickListener = deleteClickListener;
+        this.viewClickListener = viewClickListener;
 
     }
 
@@ -58,8 +66,12 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
 
         Task item = taskList.get(position);
+        holder.itemView.setTag(item);
         holder.title.setText(item.getTitle());
         holder.description.setText(item.getDescription());
+        holder.itemView.setOnClickListener(viewClickListener);
+        holder.delete_button.setOnClickListener(deleteClickListener);
+        holder.delete_button.setTag(item);
 
 
     }
@@ -69,8 +81,8 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
         return taskList.size();
     }
 
-   public void setItems(List<Task> taskList) {
-        this.taskList = taskList;
+   public void setItems(List<Task> tasks) {
+        this.taskList = tasks;
         notifyDataSetChanged();
     }
 }

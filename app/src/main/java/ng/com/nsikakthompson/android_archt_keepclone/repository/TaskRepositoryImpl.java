@@ -24,8 +24,8 @@ public class TaskRepositoryImpl implements  TaskRepository {
         this.taskDatabase = taskDatabase;
     }
     @Override
-    public Completable addTask(Task task) {
-        return  Completable.fromAction(() -> taskDatabase.taskDao().addTask(task));
+    public Completable addTask(Task tasks) {
+      return Completable.fromAction(() -> taskDatabase.taskDao().addTask(tasks));
     }
 
     @Override
@@ -34,7 +34,14 @@ public class TaskRepositoryImpl implements  TaskRepository {
     }
 
     @Override
-    public Completable deleteTask(Task task) {
-        return null;
+    public Completable deleteTask(Task tasks){
+        return Completable.fromAction(() -> taskDatabase.taskDao().deleteTask(tasks));
     }
+
+    @Override
+    public Completable deleteAllTask() {
+        return Completable.fromAction(() -> taskDatabase.taskDao().deleteAll());
+    }
+
+
 }

@@ -12,9 +12,13 @@ import ng.com.nsikakthompson.android_archt_keepclone.data.entity.Task;
  */
 
 public interface TaskRepository {
-    Completable addTask(Task task);
+    Completable addTask(Task tasks);
 
     LiveData<List<Task>> getTask();
 
-    Completable deleteTask(Task task);
+    Completable deleteTask(Task tasks);
+
+    Completable deleteAllTask();
+
+
 }

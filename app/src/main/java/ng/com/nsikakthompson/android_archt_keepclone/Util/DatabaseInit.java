@@ -3,6 +3,8 @@ package ng.com.nsikakthompson.android_archt_keepclone.Util;
 import android.arch.persistence.room.Database;
 import android.os.AsyncTask;
 
+import javax.inject.Inject;
+
 import ng.com.nsikakthompson.android_archt_keepclone.data.database.TaskDatabase;
 import ng.com.nsikakthompson.android_archt_keepclone.data.entity.Task;
 
@@ -15,6 +17,7 @@ import static android.R.attr.titleTextAppearance;
  */
 
 public  class DatabaseInit {
+
 
     public static void populateSyn(final TaskDatabase dbm){
 
@@ -31,10 +34,11 @@ public  class DatabaseInit {
     }
 
     public static void populateDummyData(TaskDatabase db){
-        db.taskDao().deleteAll();
+//        db.taskDao().deleteAll();
 
         Task  task = addUser(db, "ForLoopUyo", "This is the Maiden Edititon of ForLoopUyo happening in Uyo this weekend");
         addUser(db, "ForLoopUyo", "This is the Maiden Edititon of ForLoopUyo happening in Uyo this weekend");
+
 
     }
     private static class PopulateDbAsyncTask extends AsyncTask<Void, Void, Void> {

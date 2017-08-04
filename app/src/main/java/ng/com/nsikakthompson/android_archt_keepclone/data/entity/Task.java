@@ -2,6 +2,7 @@ package ng.com.nsikakthompson.android_archt_keepclone.data.entity;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 
 import org.threeten.bp.LocalDateTime;
@@ -27,8 +28,7 @@ public class Task {
     private String title;
     @ColumnInfo(name = DESCRIPTION)
     private String description;
-    @ColumnInfo(name = STATUS)
-    private String status;
+
 
 
     /*@ColumnInfo(name = DATE_FIELD)
@@ -42,7 +42,7 @@ public class Task {
         this.id = id;
         this.title = title;
         this.description = description;
-        this.status = status;
+
     }
     /*public LocalDateTime getDate() {
         return date;
@@ -72,13 +72,7 @@ public class Task {
         this.description = description;
     }
 
-    public String getStatus() {
-        return status;
-    }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
 
     @Override
     public String toString() {
@@ -86,7 +80,6 @@ public class Task {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
-                ", status='" + status + '\'' +
                 '}';
     }
 

@@ -12,10 +12,9 @@ import ng.com.nsikakthompson.android_archt_keepclone.data.entity.Task;
  * Created by NsikakTom on 7/25/2017.
  */
 @Database(entities = {Task.class}, version = 1)
-@TypeConverters(DateTypeConverter.class)
 public abstract class TaskDatabase extends RoomDatabase {
 
- public   abstract TaskDao taskDao();
+ public abstract TaskDao taskDao();
 
 
 }
